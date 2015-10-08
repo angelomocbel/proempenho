@@ -7,6 +7,17 @@ and open the template in the editor.
     Created on : 25/09/2015, 08:19:31
     Author     : Miguel
 */
+
+/*MENU LATERAL*/
+nav#menu_opcoes{  }
+nav#menu_opcoes ul{width: 100%; list-style-type: none; margin: 0; padding: 0;}
+nav#menu_opcoes ul li{text-align: center; }
+nav#menu_opcoes ul li a:link{padding: 20px; font-size: 11pt; color: white; text-decoration: none;}
+nav#menu_opcoes ul li a img{ width: 15px; float: left;}
+nav#menu_opcoes ul li a:link, nav#menu_opcoes ul li a:visited{color: white; display: block; height: 1%;}
+nav#menu_opcoes ul li a:hover{background-color: #ccc; color: #333; display: block;}
+
+
 nav#menu_usuario{ background-color: #ccc; color: #333; width: 170px; height: 100%; position: absolute; right: 0}
 nav#menu_usuario span{text-align: center; font-size: 11pt; cursor: pointer; padding: 2px; margin: 0}
 nav#menu_usuario span p{margin: 0; padding: 0}

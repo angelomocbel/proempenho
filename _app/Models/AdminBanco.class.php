@@ -13,74 +13,80 @@
  */
 class AdminBanco {
 
-    private $Dados;
+    private $dados;
     private $id;
-    private $Error;
-    private $Result;
+    private $error;
+    private $result;
 
-    const Entidade = "pe_banco";
+    const entidade = "pe_banco";
 
-    public function ExeCreate(array $Dados) {
-        $this->Dados = $Dados;
+    public function ExeCreate(array $dados) {
+        $this->dados = $dados;
         if ($this->Check()):
             $this->Create();
         endif;
     }
 
-    public function ExeUpdate($Banco_id, array $Dados) {
-        $this->id = $Banco_id;
-        $this->Dados = $Dados;
+    public function ExeUpdate($id, array $dados) {
+        $this->id = $id;
+        $this->dados = $dados;
+        $this->Update();
     }
 
-    public function ExeDelete($Banco_id) {
-        $this->id = $Banco_id;
+    public function ExeDelete($id) {
+        $this->id = $id;
     }
 
-    public function ExeSelect($banco_id = 0) {
-        $ReadBanco = new Read;
-        $ReadBanco->ExeRead(self::Entidade, ($banco_id != 0 ? 'WHERE id :id' : null) . ' ORDER BY sigla', ($banco_id != 0 ? "id={$banco_id}" : null));
-        if ($ReadBanco->getRowCount() > 0):
-            $this->Result = $ReadBanco->getResult();
-        else: 
-            $this->Result = null;
-        endif;
+    public function ExeSelect($id = 0) {
+        $this->id = $id;
+        $this->select();
     }
 
     public function getResult() {
-        return $this->Result;
+        return $this->result;
     }
 
     public function getError() {
-        return $this->Error;
+        return $this->error;
     }
 
     private function Check() {
         $ReadBanco = new Read;
-        $ReadBanco->ExeRead(self::Entidade, "WHERE sigla = :sigla || nome = :nome", "sigla={$this->Dados['sigla']}&nome={$this->Dados['nome']}");
+        $ReadBanco->ExeRead(self::entidade, "WHERE sigla = :sigla || nome = :nome", "sigla={$this->dados['sigla']}&nome={$this->dados['nome']}");
         if ($ReadBanco->getRowCount() > 0):
-            $this->Result = false;
-            $this->Error = ["O registro de {$this->Dados['nome']} já consta no sistema", WS_ALERT];
+            $this->result = false;
+            $this->error = ["O registro de {$this->dados['nome']} já consta no sistema", WS_ALERT];
             return false;
         else:
             return true;
         endif;
     }
 
+    private function select() {
+        $ReadBanco = new Read;
+        $ReadBanco->ExeRead(self::entidade, ($this->id != 0 ? 'WHERE id :id' : null) . ' ORDER BY sigla', ($this->id != 0 ? "id={$this->id}" : null));
+        if ($ReadBanco->getRowCount() > 0):
+            $this->result = $ReadBanco->getResult();
+        else:
+            $this->result = null;
+        endif;
+    }
+
     private function Create() {
         $Create = new Create;
-        $Create->ExeCreate(self::Entidade, $this->Dados);
+        $Create->ExeCreate(self::entidade, $this->dados);
         if ($Create->getResult()):
-            $this->Result = $Create->getResult();
-            $this->Error = ["O registro de <b>{$this->Dados['nome']}</b> foi cadastrado com sucesso no sistema!", WS_ACCEPT];
+            $this->result = $Create->getResult();
+            $this->error = ["O registro de <b>{$this->dados['nome']}</b> foi cadastrado com sucesso no sistema!", WS_ACCEPT];
         endif;
     }
 
     private function Update() {
         $Update = new Update;
-        $Update->ExeUpdate(self::Entidade, $this->Dados, "WHERE banco_id = :id", "id={$this->id }");
+        $Update->ExeUpdate(self::entidade, $this->dados, "WHERE id = :id", "id={$this->id }");
         if ($Update->getRowCount() >= 1):
-            $this->Error = ["O registro de <b>{$this->Dados['nome']}</b> foi atualizado com sucesso!", WS_ACCEPT];
-            $this->Result = true;
+            $this->error = ["O registro de <b>{$this->dados['nome']}</b> foi atualizado com sucesso!", WS_ACCEPT];
+            $this->result = true;
         endif;
     }
 

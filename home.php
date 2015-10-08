@@ -26,9 +26,10 @@ endif;
         <title>PROEmpenho</title>
         <link rel="icon" href="favicon.ico">
         
+        <link href="resources/css/layout.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/estilo.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/menu.css" rel="stylesheet" type="text/css"/>
-        
+
         <script src="resources/js/jquery-1.11.3.js" type="text/javascript"></script>
         <script src="resources/js/jquery.maskedinput.js" type="text/javascript"></script>
         <script src="resources/js/jquery.maskMoney.js" type="text/javascript"></script>
@@ -40,7 +41,7 @@ endif;
 
         <div id="container">
 
-            <header class="pagina">
+            <header id="cabecalho">
 
                 <span style="padding: 10px 20px; position: absolute; float: left">
 
@@ -78,13 +79,13 @@ endif;
 
                     <ul>
 
-                        <li><a href="?page=novapessoa"><img src="resources/img/add.png" />Cadastrar Pessoa</a></li>
+                        <li><a href="?page=novapessoa"><img src="resources/img/plus79.png" />Cadastrar Pessoa</a></li>
 
-                        <li><a href="?page=busca"><img src="resources/img/search.png" />Buscar Registros</a></li>
+                        <li><a href="?page=busca"><img src="resources/img/magnifying-glass21.png" />Buscar Registros</a></li>
 
-                        <li><a href="?page=relatorio"><img src="resources/img/list.png" />Relatórios</a></li>
+                        <li><a href="?page=relatorio"><img src="resources/img/options27.png" />Relatórios</a></li>
 
-                        <li><a href="?page=configura"><img src="resources/img/config.png" />Configurações</a></li>
+                        <li><a href="?page=configura"><img src="resources/img/three115.png" />Configurações</a></li>
 
                     </ul>
 
@@ -105,7 +106,7 @@ endif;
 
             </section>
 
-            <footer>
+            <footer id="rodape">
 
                 <p>PROEmpenho &COPY; DITEC</p>
 
