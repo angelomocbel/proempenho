@@ -17,7 +17,7 @@ nav#menu_opcoes ul li a img{ width: 15px; float: left;}
 nav#menu_opcoes ul li a:link, nav#menu_opcoes ul li a:visited{color: white; display: block; height: 1%;}
 nav#menu_opcoes ul li a:hover{background-color: #444; transition: background-color .2s ease-in; display: block;}
 
-
+/*MENU DO USUÁRIO*/
 nav#menu_usuario{ background-color: #ccc; color: #333; width: 170px; height: 100%; position: absolute; right: 0}
 nav#menu_usuario span{text-align: center; font-size: 11pt; cursor: pointer; padding: 2px; margin: 0}
 nav#menu_usuario span p{margin: 0; padding: 0}
@@ -26,73 +26,9 @@ ul#opcoes_usuario{display: none; width: 100%; height: auto; margin: 0; padding: 
 ul#opcoes_usuario li a{text-decoration: none; display: block; color: #FFF; padding: 5px}
 ul#opcoes_usuario li a:hover{ background-color: #444; transition: background-color .2s ease-in;}
 
-#opcao{
-    position: relative;
-    text-align: center;
-    font-size: 11pt;
-    
-}
-
-#opcao:hover{
-    border-bottom: 2px solid #333;
-}
-
-#opcoes{
-    top: 26px;
-    border-bottom: 3px solid #00256F;
-    border-radius: 0px 0px 5px 5px;
-}
-
-#opcao img{
-    position: relative;
-}
-
-#menu{
-    float: right;
-    position: relative;
-    color: #333;
-}
-
-#menu a{
-    padding: 2px;
-    color: #FFF;
-    text-decoration: none;
-    display: block;
-}
-
-#menu ul, #menu li{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-#menu li{
-    float: left;
-    padding: 0px 10px;
-    width: 140px;
-    cursor: pointer;
-}
-
-#menu li ul{
-    position: absolute;
-    left: 0px;
-    display: none;
-    
-}
-
-#menu li ul li{
-    padding-top: 2px;
-    padding-bottom: 2px;
-    font-size: 16px;
-    float: none;
-    background-color: #4E6CB4;
-    transition: background-color .2s ease-in;
-    -webkit-transition: background-color .2s ease-in;
-    -moz-transition: background-color .2s ease-in;
-    -o-transition: background-color .2s ease-in;
-    -ms-transition: background-color .2s ease-in;
-}
-
-#menu li ul li:hover{
-    background-color: #00256F;
-}
+/*MENU DE CONFIGURAÇÕES*/
+nav.menu_configura{ padding: 5px}
+nav.menu_configura ul{width: 50%; list-style: none; margin: 0; padding: 0}
+nav.menu_configura ul li{text-align: left; padding: 5px 0px}
+nav.menu_configura ul li a:link{font-size: 11pt; color: white; text-decoration: none;}
+nav.menu_configura ul li a:link, nav.menu_configura ul li a:visited{color: #333; display: block; height: 1%;}
