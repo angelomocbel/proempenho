@@ -15,7 +15,7 @@ nav#menu_opcoes ul li{text-align: center; }
 nav#menu_opcoes ul li a:link{padding: 20px; font-size: 11pt; color: white; text-decoration: none;}
 nav#menu_opcoes ul li a img{ width: 15px; float: left;}
 nav#menu_opcoes ul li a:link, nav#menu_opcoes ul li a:visited{color: white; display: block; height: 1%;}
-nav#menu_opcoes ul li a:hover{background-color: #ccc; color: #333; display: block;}
+nav#menu_opcoes ul li a:hover{background-color: #444; transition: background-color .2s ease-in; display: block;}
 
 
 nav#menu_usuario{ background-color: #ccc; color: #333; width: 170px; height: 100%; position: absolute; right: 0}
@@ -24,7 +24,7 @@ nav#menu_usuario span p{margin: 0; padding: 0}
 nav#menu_usuario:hover{border-bottom: 2px solid #555}
 ul#opcoes_usuario{display: none; width: 100%; height: auto; margin: 0; padding: 0px; background-color: #555;  position: relative; list-style: none; top: 13px}
 ul#opcoes_usuario li a{text-decoration: none; display: block; color: #FFF; padding: 5px}
-ul#opcoes_usuario li a:hover{ background-color: #ccc; color: #333; transition: background-color .2s ease-in; }
+ul#opcoes_usuario li a:hover{ background-color: #444; transition: background-color .2s ease-in;}
 
 #opcao{
     position: relative;

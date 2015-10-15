@@ -18,8 +18,32 @@ class AdminEmpenho {
     private $error;
     private $result;
 
-    const Entidade = "pe_empenho";
+    const entidade = "pe_empenho";
 
+    public function getEmpenhosByFiltro($sec_id = 0, $ano = 0){
+        $read = new Read();
+        $and = '';
+        $e = '';
+        $where = '';
+        if($sec_id != 0 && $ano != 0):
+            $and = ' AND ';
+            $e = '&';
+        endif;
+        if($sec_id != 0 || $ano != 0):
+            $where = 'WHERE ';
+        endif;
+        $termos = $where.($sec_id == 0 ? '' : 'secretaria_id = :sec_id').$and.($ano == 0 ? '' : 'year(data_pag) = :ano');
+        $parseString = ($sec_id == 0 ? '' : "sec_id={$sec_id}").$e.($ano == 0 ? '' : "ano={$ano}");
+
+        $read->ExeRead(self::entidade, $termos, $parseString);
+        if($read->getRowCount() > 0):
+            $this->result = $read->getResult();
+        else:
+            $this->result = false;
+        endif;
+        
+    }
+    
     public function ExeCreate(array $dados) {
         $this->dados = $dados;
         $this->setDados();
@@ -59,7 +83,7 @@ class AdminEmpenho {
 
     private function Check() {
         $readEmpenho = new Read;
-        $readEmpenho->ExeRead(self::Entidade, "WHERE id = :id", "id={$this->dados['id']}");
+        $readEmpenho->ExeRead(self::entidade, "WHERE id = :id", "id={$this->dados['id']}");
         if ($readEmpenho->getRowCount() > 0):
             $this->result = false;
             $this->error = ["A identificação {$this->dados['id']} já consta no sistema", WS_ALERT];
@@ -81,7 +105,7 @@ class AdminEmpenho {
 
     private function Create() {
         $Create = new Create;
-        $Create->ExeCreate(self::Entidade, $this->dados);
+        $Create->ExeCreate(self::entidade, $this->dados);
         if ($Create->getResult() != null):
             $this->result = true;
             $this->error = ["O empenho <b>{$this->dados['id']}</b> foi cadastrada com sucesso no sistema!", WS_ACCEPT];
@@ -90,7 +114,7 @@ class AdminEmpenho {
 
     private function Update() {
         $Update = new Update;
-        $Update->ExeUpdate(self::Entidade, $this->dados, "WHERE id = :id", "id={$this->id }");
+        $Update->ExeUpdate(self::entidade, $this->dados, "WHERE id = :id", "id={$this->id }");
         if ($Update->getRowCount() > 0):
             $this->error = ["O Empenho <b>{$this->dados['id']}</b> foi atualizada com sucesso!", WS_ACCEPT];
             $this->result = true;
@@ -99,7 +123,7 @@ class AdminEmpenho {
 
     private function Delete() {
         $Delete = new Delete;
-        $Delete->ExeDelete(self::Entidade, "WHERE id = :id", "id={$this->id}");
+        $Delete->ExeDelete(self::entidade, "WHERE id = :id", "id={$this->id}");
         if ($Delete->getResult()):
             $this->result = true;
             $this->error = ["Empenho removido com sucesso", WS_ACCEPT];

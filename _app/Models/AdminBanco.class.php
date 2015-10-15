@@ -64,7 +64,7 @@ class AdminBanco {
 
     private function select() {
         $ReadBanco = new Read;
-        $ReadBanco->ExeRead(self::entidade, ($this->id != 0 ? 'WHERE id :id' : null) . ' ORDER BY sigla', ($this->id != 0 ? "id={$this->id}" : null));
+        $ReadBanco->ExeRead(self::entidade, ($this->id != 0 ? 'WHERE id = :id' : null) . ' ORDER BY sigla', ($this->id != 0 ? "id={$this->id}" : null));
         if ($ReadBanco->getRowCount() > 0):
             $this->result = $ReadBanco->getResult();
         else:

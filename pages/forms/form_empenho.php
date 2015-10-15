@@ -10,6 +10,7 @@
     $secretaria_id = (empty($em_secretaria_id) ? '' : $em_secretaria_id);
     $data_pag = (empty($em_data_pag) ? '' : $em_data_pag);
     $obs = (empty($em_obs) ? '' : $em_obs);
+    $pessoa_id = (empty($em_pessoa_id) ? '' : $em_pessoa_id);
 ?>
 <form method="post" action="">
     <input type="hidden" name="pessoa_id" value="<?= $pessoa_id ?>"/>
