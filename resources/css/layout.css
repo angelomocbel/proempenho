@@ -5,7 +5,7 @@ footer#rodape{padding: 5px 0; height: 40px;  background: #ccc; clear: both;}
 footer#rodape p{text-align: center; font-size: 8pt;}
 
 /*CONTAINER E SIDEBAR*/
-#container{border: 1px solid #333; max-width:960px; margin:0 auto; background:#555; overflow:hidden;}
+#container{border: 1px solid #333; max-width:960px; margin:0 auto; background: linear-gradient(#333, #555); overflow:hidden;}
 #content{min-height: 500px; width:77%; float:right; background-color: #fff }
 #sidebar{width:23%; float:left;}
 

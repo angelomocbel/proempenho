@@ -26,27 +26,29 @@
         echo '<hr>';
         echo "<h2>Resultados para '{$dados['busca']}'</h2>";
         if (is_array($search->getResult())) {
+            echo "<ul class='resultado'>";
             foreach ($search->getResult() as $linha) {
                 extract($linha);
                 if ($dados['entidade'] == 'pessoa') {
-                    echo "<div class=\"resultado\"><div class=\"icone\"><a target='_blank' href=\"?page=pessoa&id={$id}\"><img src=\"resources/img/inforesult.png\" /></a></div>
+                    echo "<li class='clearfix' ><div class=\"icone\"><a target='_blank' href=\"?page=pessoa&id={$id}\"><img src=\"resources/img/inforesult.png\" /></a></div>
                             <div class=\"info\">
                                 <p><label>Nome: </label>{$nome}</p>
                                 <p><label>CPF/CNPJ: </label>{$cadastro}</p>
                                 <p><label>Contatos: </label>{$email} {$celular} {$telefone}</p>
                             </div>
-                        </div>";
+                        </li>";
                 }
                 if ($dados['entidade'] == 'empenho') {
-                    echo "<div class='resultado'><div class='icone'><a href='?page=pessoa&id={$pessoa_id}'><img src='resources/img/inforesult.png'/></a></div>
-                        <div class='info'>
-                            <p><label>NE/OP: </label>{$id}</p>
-                            <p><label>Nº Doc.: </label>{$numero_doc}</p>
-                            <p><label>Descrição: </label>{$descricao}</p>
-                        </div>
-                    </div>";
+                    echo "<li class='clearfix'><div class='icone'><a href='?page=pessoa&id={$pessoa_id}'><img src='resources/img/inforesult.png'/></a></div>
+                            <div class='info'>
+                                <p><label>NE/OP: </label>{$id}</p>
+                                <p><label>Nº Doc.: </label>{$numero_doc}</p>
+                                <p><label>Descrição: </label>{$descricao}</p>
+                            </div>
+                        </li>";
                 }
             }
+            echo "</ul>";
         }
     }
     ?>

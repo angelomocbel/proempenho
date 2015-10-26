@@ -21,6 +21,7 @@ endif;
         <link href="resources/css/layout.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/estilo.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/menus.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/listas.css" rel="stylesheet" type="text/css"/>
         <script src="resources/js/jquery-1.11.3.js" type="text/javascript"></script>
         <script src="resources/js/jquery.maskedinput.js" type="text/javascript"></script>
         <script src="resources/js/jquery.maskMoney.js" type="text/javascript"></script>
