@@ -26,22 +26,22 @@
         echo '<hr>';
         echo "<h2>Resultados para '{$dados['busca']}'</h2>";
         if (is_array($search->getResult())) {
-            echo "<ul class='resultado'>";
+            echo "<ul class='lista'>";
             foreach ($search->getResult() as $linha) {
                 extract($linha);
                 if ($dados['entidade'] == 'pessoa') {
-                    echo "<li class='clearfix' ><div class=\"icone\"><a target='_blank' href=\"?page=pessoa&id={$id}\"><img src=\"resources/img/inforesult.png\" /></a></div>
-                            <div class=\"info\">
-                                <p><label>Nome: </label>{$nome}</p>
+                    echo "<li class='clearfix' ><div class='icone'></div>
+                            <div class='dados'>
+                                <p><label>Nome:<a class='info' href='home.php?page=pessoa&id={$id}'> </label>{$nome}</a></p>
                                 <p><label>CPF/CNPJ: </label>{$cadastro}</p>
                                 <p><label>Contatos: </label>{$email} {$celular} {$telefone}</p>
                             </div>
                         </li>";
                 }
                 if ($dados['entidade'] == 'empenho') {
-                    echo "<li class='clearfix'><div class='icone'><a href='?page=pessoa&id={$pessoa_id}'><img src='resources/img/inforesult.png'/></a></div>
-                            <div class='info'>
-                                <p><label>NE/OP: </label>{$id}</p>
+                    echo "<li class='clearfix'>
+                            <div class='dados'>
+                                <p><label>NE/OP: </label><a class='info' href=''>{$id}</a></p>
                                 <p><label>Nº Doc.: </label>{$numero_doc}</p>
                                 <p><label>Descrição: </label>{$descricao}</p>
                             </div>

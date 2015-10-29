@@ -8,39 +8,19 @@ and open the template in the editor.
     Author     : Miguel
 */
 
-ul.empenhos {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    width: 100%;
-    height: auto;
-    min-height: 70px;
-}
-ul.empenhos > li{
-    min-height: 76px;
-    background-color: #ccc;
-    color: #333;
-    font-size: 10pt;
-    margin-bottom: 5px;
-    width: 100%;
-}
 
 .clearfix:after{ content: ' '; display: block; clear: both}
 .clearfix:before{ content: ' '; display: block; clear: both}
 
-div.icone{min-height: 96px; float: left; width: 70px; background-image: url(../img/inforesult.png); background-position: center; background-repeat: no-repeat;}
-div.icone > a{position: relative; display: block; height: 96px}
+/*APARENCIA GERAL DE LISTAS*/
 
-div.dados{ padding: 10px; float: left; width: 60%; height: auto; min-height: 100%;}
-div.dados p{margin: 7px 0px; font-size: 9pt;}
-div.dados p > label{float: left; width: 100px; font-weight: bold}
-
-div.acoes{width: 20%; min-height: 96px; text-align: center; float: right; }
-div.acoes > a{display: inline-block}
-div.acoes > a > img { margin: 33px 10px;}
-
-
-/*RESULTADO DE BUSCA*/
-
-ul.resultado{margin:0; padding:0; list-style: none; width: 100%; height: auto;}
-ul.resultado > li{background-color: #ccc; color: #333; font-size: 10pt; margin-bottom: 5px;}
+ul.lista{margin:0; padding:0; list-style: none; width: 100%; height: auto;}
+ul.lista > li{background-color: #ccc; color: #333; font-size: 10pt; margin-bottom: 5px; border-left: 5px solid #555;}
+ul.lista > li > div.dados {float: left;     padding: 10px; width: 70%; height: auto; min-height: 100%; display: inline-block;}
+ul.lista > li > div.dados > p{margin: 7px 0px; font-size: 9pt;}
+ul.lista > li > div.dados > p > a.info{text-decoration: none; font-size: 9pt; color: #09f }
+ul.lista > li > div.dados > p > label{float: left; width: 100px; font-weight: bold}
+ul.lista > li > nav.acoes{width: 25%; height: 100%; text-align: center; display: inline-block}
+ul.lista > li > nav.acoes > ul{list-style: none; margin: 0; padding: 0}
+ul.lista > li > nav.acoes > ul > li{display: inline-block}
+ul.lista > li > nav.acoes > ul > li > a{display: block; padding: 5px 10px}

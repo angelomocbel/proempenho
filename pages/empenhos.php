@@ -9,8 +9,8 @@ if (!empty($pessoa_id)):
         $pessoa = $read->getResult()[0];
         echo "<h2>Empenhos para <a href='home.php?page=pessoa&id={$pessoa['id']}'>{$pessoa['nome']}<a></h2>";
         echo "<div class='operacoes'>";
-        echo "<a title='Adicionar' href='home.php?page=novoempenho&pessoa_id={$pessoa_id}'><img src='resources/img/add139.png'/></a>";
-        echo "<a title='Imprimir' target='_blank' href='imprimir_empenhos.php?pessoa_id={$pessoa_id}'><img src='resources/img/print.png'/></a>";
+        echo "<a title='Adicionar' href='home.php?page=novoempenho&pessoa_id={$pessoa_id}'><img src='resources/img/acoes/add.png'/></a>";
+        echo "<a title='Imprimir' target='_blank' href='imprimir_empenhos.php?pessoa_id={$pessoa_id}'><img src='resources/img/acoes/print.png'/></a>";
         echo "</div>";
         $read->ExeRead("pe_empenho", "WHERE pessoa_id = :pessoa_id", "pessoa_id={$pessoa_id}");
         if($read->getRowCount() > 0):

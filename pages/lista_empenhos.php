@@ -1,22 +1,19 @@
 <?php
-echo "<ul class='empenhos'>";
+echo "<ul class='lista'>";
 
 foreach ($empenhos as $empenho):
     echo "<li class='clearfix'>";
-
-        echo "<div class='icone'>";
-            echo "<a target='_blank' href='home.php?page=empenho&id={$empenho['id']}'></a>";
-        echo "</div>";
         echo "<div class='dados'>";
-            echo "<p><label>NE/OP</label>{$empenho['id']}</p>";
-            echo "<p><label>Nº Documento</label>{$empenho['numero_doc']}</p>";
-            echo "<p><label>Descrição</label>{$empenho['descricao']}</p>";
+            echo "<p><label>NE/OP:</label><a class='info'>{$empenho['id']}</a></p>";
+            echo "<p><label>Nº Doc.:    </label>{$empenho['numero_doc']}</p>";
+            echo "<p><label>Descrição: </label>{$empenho['descricao']}</p>";
         echo "</div>";
-        echo "<div class='acoes'>";
-            echo "<a href='home.php?page=empenho&id={$empenho['id']}&editar=1'><img width='28' src='resources/img/edit.png'/></a>";
-            echo "<a onclick='return confirmaDelete()' href='home.php?page=empenho&id={$empenho['id']}&excluir=1'><img width='28' src='resources/img/remove.png'/></a>";
-            echo "</div>";
+        echo "<nav class='acoes'>";
+            echo "<ul>";
+                echo "<li><a href='home.php?page=empenho&id={$empenho['id']}&editar=1'><img width='28' src='resources/img/acoes/edit.png'/></a></li>";
+                echo "<li><a onclick='return confirmaDelete()' href='home.php?page=empenho&id={$empenho['id']}&excluir=1'><img width='28' src='resources/img/acoes/remove.png'/></a></li>";
+            echo "</ul>";
+        echo "</nav>";
     echo "</li>";
 endforeach;
 echo "</ul>";
-?>
