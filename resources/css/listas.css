@@ -24,3 +24,6 @@ ul.lista > li > nav.acoes{width: 25%; height: 100%; text-align: center; display:
 ul.lista > li > nav.acoes > ul{list-style: none; margin: 0; padding: 0}
 ul.lista > li > nav.acoes > ul > li{display: inline-block}
 ul.lista > li > nav.acoes > ul > li > a{display: block; padding: 5px 10px}
+
+ul.usuario > li{background: #ccc url(../img/profile5.png) center left 10px no-repeat; background-size: 32px}
+ul.usuario > li > div.dados {margin-left: 50px}

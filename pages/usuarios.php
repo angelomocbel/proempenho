@@ -7,15 +7,15 @@ if (!empty($dados['salvar'])):
     unset($dados['confirme']);
     $admin->ExeCreate($dados);
 endif;
-if(!empty($dados['editar'])):
-    
+if (!empty($dados['editar'])):
+
 endif;
-if(!empty($dados['deletar'])):
+if (!empty($dados['deletar'])):
     $usuario_id = $dados['usuario_id'];
     $admin->ExeDelete($usuario_id);
 endif;
 ?>
-<div>
+<div class="clearfix">
     <h2>Novo Usuário</h2>
     <form method="post" action="">
         <?php
@@ -50,27 +50,23 @@ endif;
 </div>
 <div>
     <h2>Usuários Registrados</h2>
-    <form method="post" action="">
-        <p class = "p100">
+<?php
+$admin->ExeSelect();
+$usuarios = $admin->getResult();
 
-            <select class="w95" name="usuario_id" id="lista_usuarios" size="10">
-                <?php
-                $admin->ExeSelect();
-                $usuarios = $admin->getResult();
-                var_dump($usuarios);
-                if ($usuarios != null):
-                    foreach ($usuarios as $usuario):
-                        echo "<option value=\"{$usuario['id']}\">{$usuario['nome']}</option>";
-                    endforeach;
-                else:
-                    echo "<option disabled>Nenhum registro</option>";
-                endif;
-                ?>
-            </select>
-        </p>
-        <p class = "p100">
-            <input type="submit" name="editar" value="Editar"/>
-            <input onclick="return confirmaDelete()" type="submit" name="deletar" value="Deletar"/>
-        </p>
-    </form>
+if ($usuarios != null):
+    echo "<ul class='lista usuario'>";
+    foreach ($usuarios as $usuario):
+        echo "<li class='clearfix'>";
+            echo "<div class='dados'>";
+            echo "<p><label>Nome: </label> {$usuario['nome']}</p>";
+            echo "<p><label>Email: </label> {$usuario['email']}</p>";
+            echo "</div>";
+        echo "</li>";
+    endforeach;
+    echo "</ul>";
+else:
+    
+endif;
+?>
 </div>

@@ -35,14 +35,14 @@ endif;
                 </span>
                 <!--   MENU USUÁRIO-->
                 <nav id="menu_usuario">
-                    <span>
-                        <p><img width="25" src="resources/img/profile5.png"/></p>
+                    <div class="clearfix">
+                        <p><img src="resources/img/profile5.png"/></p>
                         <p><?= $usuario['nome'] ?></p>
-                        <ul id="opcoes_usuario">
-                            <li><a href="home.php?page=usuario&id=<?= $usuario['id'] ?>&edit=1">Meus dados</a></li>
-                            <li><a href="home.php?page=logout" onclick="return confirmaLogout()">Sair</a></li>
-                        </ul>
-                    </span>
+                    </div>
+                    <ul id="opcoes_usuario">
+                        <li><a href="home.php?page=usuario&id=<?= $usuario['id'] ?>&edit=1">Meus dados</a></li>
+                        <li><a href="home.php?page=logout" onclick="return confirmaLogout()">Sair</a></li>
+                    </ul>
                 </nav>
             </header>
             <section id="sidebar">
