@@ -62,6 +62,12 @@ if ($usuarios != null):
             echo "<p><label>Nome: </label> {$usuario['nome']}</p>";
             echo "<p><label>Email: </label> {$usuario['email']}</p>";
             echo "</div>";
+            echo "<nav class='acoes'>";
+            echo "<ul>";
+                echo "<li><a href='#'><img width='24' src='resources/img/acoes/edit.png'/></a></li>";
+                echo "<li><a onclick='return confirmaDelete()' href='#'><img width='24' src='resources/img/acoes/remove.png'/></a></li>";
+            echo "</ul>";
+        echo "</nav>";
         echo "</li>";
     endforeach;
     echo "</ul>";

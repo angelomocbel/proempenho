@@ -10,8 +10,8 @@ foreach ($empenhos as $empenho):
         echo "</div>";
         echo "<nav class='acoes'>";
             echo "<ul>";
-                echo "<li><a href='home.php?page=empenho&id={$empenho['id']}&editar=1'><img width='28' src='resources/img/acoes/edit.png'/></a></li>";
-                echo "<li><a onclick='return confirmaDelete()' href='home.php?page=empenho&id={$empenho['id']}&excluir=1'><img width='28' src='resources/img/acoes/remove.png'/></a></li>";
+                echo "<li><a href='home.php?page=empenho&id={$empenho['id']}&editar=1'><img width='24' src='resources/img/acoes/edit.png'/></a></li>";
+                echo "<li><a onclick='return confirmaDelete()' href='home.php?page=empenho&id={$empenho['id']}&excluir=1'><img width='24' src='resources/img/acoes/remove.png'/></a></li>";
             echo "</ul>";
         echo "</nav>";
     echo "</li>";
